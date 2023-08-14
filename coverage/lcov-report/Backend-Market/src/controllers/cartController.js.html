@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20.68% </span>
+                <span class="strong">68.96% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/29</span>
+                <span class='fraction'>20/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20.68% </span>
+                <span class="strong">68.96% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/29</span>
+                <span class='fraction'>20/29</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -126,23 +126,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -150,12 +150,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -175,37 +175,37 @@ const getAll = <span class="fstat-no" title="function not covered" >as</span>ync
     }
 };
 &nbsp;
-const oneCart = <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-        const products = <span class="cstat-no" title="statement not covered" >await getCartInfo(req.params.id);</span>
-<span class="cstat-no" title="statement not covered" >        res.json(products);</span>
+const oneCart = async (req, res) =&gt; {
+    try {
+        const products = await getCartInfo(req.params.id);
+        res.status(200).json(products);
     } catch (error) {
 <span class="cstat-no" title="statement not covered" >        res.status(500).json({ error: error.message });</span>
     }
 };
 &nbsp;
-const add = <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-        const product = <span class="cstat-no" title="statement not covered" >await getProductByID(req.body);</span>
-<span class="cstat-no" title="statement not covered" >        if (!product) {</span>
+const add = async (req, res) =&gt; {
+    try {
+        const product = await getProductByID(req.body);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!product) {
             const newProduct = <span class="cstat-no" title="statement not covered" >await addProduct(req.body);</span>
-<span class="cstat-no" title="statement not covered" >            res.json(newProduct);</span>
+<span class="cstat-no" title="statement not covered" >            res.status(201).json(newProduct);</span>
         } else {
-            const addingProduct = <span class="cstat-no" title="statement not covered" >await addOne(req.body);</span>
-<span class="cstat-no" title="statement not covered" >            res.json(addingProduct);</span>
+            const addingProduct = await addOne(req.body);
+            res.status(201).json(addingProduct);
         }   
     } catch (error) {
 <span class="cstat-no" title="statement not covered" >        res.status(500).json({ error: error.message });</span>
     }
 };
 &nbsp;
-const sustract = <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-        const product = <span class="cstat-no" title="statement not covered" >await getProductByID(req.body);</span>
-<span class="cstat-no" title="statement not covered" >        if (product) {</span>
-            const sustractingProduct = <span class="cstat-no" title="statement not covered" >await sustractOne(req.body);</span>
-<span class="cstat-no" title="statement not covered" >            deleteProducts(req.body.user_id);</span>
-<span class="cstat-no" title="statement not covered" >            res.json(sustractingProduct);</span>
+const sustract = async (req, res) =&gt; {
+    try {
+        const product = await getProductByID(req.body);
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (product) {
+            const sustractingProduct = await sustractOne(req.body);
+            deleteProducts(req.body.user_id);
+            res.status(200).json(sustractingProduct);
         }
     } catch (error) {
 <span class="cstat-no" title="statement not covered" >        res.status(500).json({ error: error.message });</span>
@@ -220,7 +220,7 @@ module.exports = {getAll, oneCart, add, sustract};</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-08-12T19:21:53.477Z
+                at 2023-08-14T03:48:54.877Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
